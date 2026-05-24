@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <script>
+    if (localStorage.getItem('demo_theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
   <div class="app-container">
     <!-- Sidebar Navigation -->
-    <aside class="sidebar auto-expand">
+    <aside class="sidebar">
       <div>
         <div class="sidebar-logo">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

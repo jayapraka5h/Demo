@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <script>
+    if (localStorage.getItem('demo_theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
   <div class="app-container">
     <!-- Sidebar Navigation -->
-    <aside class="sidebar auto-expand">
+    <aside class="sidebar">
       <div>
         <div class="sidebar-logo">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,21 +45,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="tests.html">
+              <a href="assignments.html">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 11L12 14L22 4"/>
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                </svg>
-                <p>Tests</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="assignments.html">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
                 </svg>
                 <p>Assignments</p>
               </a>
@@ -131,13 +125,44 @@
           <h1 id="courses-header-title">My Courses</h1>
         </div>
         <div class="header-actions">
-          <button class="action-btn" aria-label="Notifications">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-            <span class="badge-dot"></span>
-          </button>
+          <!-- Notification Wrapper -->
+          <div class="notification-wrapper">
+            <button class="action-btn" aria-label="Notifications" id="btn-notifications">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              <span class="badge-dot"></span>
+            </button>
+            
+            <!-- Notification Dropdown Menu -->
+            <div class="notification-dropdown" id="notification-dropdown">
+              <div class="notification-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="notification-3dot-btn" id="btn-notification-3dot" aria-label="Filter notifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                      <circle cx="12" cy="5" r="1"/>
+                      <circle cx="12" cy="12" r="1"/>
+                      <circle cx="12" cy="19" r="1"/>
+                    </svg>
+                  </button>
+                  <div class="notification-filter-menu hidden" id="notification-filter-menu">
+                    <button class="filter-opt active" data-type="all">All Notifications</button>
+                    <button class="filter-opt" data-type="courses">Course Updates</button>
+                    <button class="filter-opt" data-type="jobs">Job Matches</button>
+                    <button class="filter-opt" data-type="updates">Portal News</button>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-body" id="notification-body">
+                <!-- Rendered dynamically by JS -->
+              </div>
+              <div class="notification-footer">
+                <button class="btn-read-all" id="btn-read-all">Read All</button>
+              </div>
+            </div>
+          </div>
           
           <button class="action-btn" aria-label="QR Scanner">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -233,53 +258,24 @@
                 </div>
 
                 <div class="instructor-badge">
-                  <div class="instructor-avatar">I</div>
-                  <span class="instructor-name" id="player-instructor-name">Somanna</span>
+                  <div class="instructor-avatar">T</div>
+                  <span class="instructor-name">Trainer: <strong id="player-instructor-name">Somanna</strong></span>
                 </div>
 
                 <div style="margin-top: 24px;">
                   <!-- Tabs -->
                   <div class="player-tabs-bar">
-                    <button class="tab-btn active" id="tab-overview">Overview</button>
-                    <button class="tab-btn" id="tab-discussions">Discussions</button>
-                    <button class="tab-btn" id="tab-reviews">Reviews</button>
+                    <button class="tab-btn active" id="tab-overview">Trainer Details</button>
+                    <button class="tab-btn" id="tab-discussions">What We Learn</button>
                   </div>
 
                   <!-- Tab Panels -->
                   <div class="tab-panel-content" id="panel-overview">
-                    <p style="margin-bottom: 12px;">Welcome to this syllabus module course. Study materials, tasks, and exercises are outlined in the accordion content list.</p>
+                    <!-- Populated dynamically via JS -->
                   </div>
                   
                   <div class="tab-panel-content hidden" id="panel-discussions">
-                    <div style="display: flex; gap: 12px; margin-bottom: 20px;">
-                      <input type="text" class="chat-input" style="border-radius: 8px;" placeholder="Ask a question or leave a comment...">
-                      <button class="btn-primary" style="padding: 8px 16px; font-size: 0.8rem; border-radius: 8px;">Post</button>
-                    </div>
-                    <div class="discussion-comments-list">
-                      <div class="comment-item">
-                        <div class="comment-avatar">JS</div>
-                        <div class="comment-details">
-                          <h4>Jeethu Sharma <span style="font-weight: 400; color: var(--text-secondary); margin-left: 8px; font-size: 0.7rem;">2 hours ago</span></h4>
-                          <p>Is Tomcat installation required for Module 2 configs or can we run Spring Boot standalone? Thanks.</p>
-                        </div>
-                      </div>
-                      <div class="comment-item">
-                        <div class="comment-avatar" style="background-color: var(--accent-cyan)">TA</div>
-                        <div class="comment-details">
-                          <h4>TA Assistant <span style="font-weight: 400; color: var(--text-secondary); margin-left: 8px; font-size: 0.7rem;">1 hour ago</span></h4>
-                          <p>Hi Jeethu! For Spring Boot standard applications, Tomcat is embedded automatically. You do not need to install it separately. Standalone run will work perfectly!</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="tab-panel-content hidden" id="panel-reviews">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                      <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">4.8</span>
-                      <span style="color: var(--accent-gold); font-size: 1.1rem;">★★★★★</span>
-                      <span style="font-size: 0.8rem; color: var(--text-secondary);">(142 ratings)</span>
-                    </div>
-                    <p>Excellent structured learning path, easy-to-follow diagrams for Inversion of Control, and solid practical questions.</p>
+                    <!-- Populated dynamically via JS -->
                   </div>
                 </div>
               </div>
@@ -403,6 +399,7 @@
     </div>
   </div>
 
+  <script src="assets/js/notifications.js"></script>
   <script src="assets/js/courses.js"></script>
 </body>
 </html>
