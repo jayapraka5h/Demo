@@ -225,18 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
   attendanceRecords = markTodayPresent(attendanceRecords);
   renderAttendanceGrid(attendanceRecords);
 
-  const courseFilter = document.getElementById('course-filter');
   const yearFilter = document.getElementById('year-filter');
 
   const updateFilters = () => {
     const tempRecords = JSON.parse(JSON.stringify(attendanceRecords));
-    
-    if (courseFilter && courseFilter.value === 'web-dev') {
-      if (tempRecords['Jan']) {
-        tempRecords['Jan'][12] = 'A';
-        tempRecords['Jan'][16] = 'A';
-      }
-    }
     
     if (yearFilter && yearFilter.value === '2025') {
       if (tempRecords['Jan']) {
@@ -253,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAttendanceGrid(tempRecords);
   };
 
-  if (courseFilter) courseFilter.addEventListener('change', updateFilters);
   if (yearFilter) yearFilter.addEventListener('change', updateFilters);
 
   // --- ASK DEMO CHAT INTERACTIVE LOGIC ---

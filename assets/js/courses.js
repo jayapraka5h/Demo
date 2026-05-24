@@ -477,6 +477,78 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Load lesson details into video view
+  const trainerBios = {
+    'Somanna': {
+      specialization: 'Enterprise Java & Spring Framework Expert',
+      experience: '8+ Years',
+      bio: 'Somanna is a veteran Java developer and system architect. He has trained thousands of students in core backend development, focusing on enterprise architecture, Spring Framework, Spring Boot, and microservices design.'
+    },
+    'Pradeep Kumar': {
+      specialization: 'Senior Database Architect & ORM Specialist',
+      experience: '10+ Years',
+      bio: 'Pradeep is a database specialist with a focus on high-performance persistence layers. He has extensive experience in Hibernate ORM, SQL optimization, and cloud database migrations for enterprise applications.'
+    },
+    'Sanjeev': {
+      specialization: 'Principal Java Architect & Web Specialist',
+      experience: '12+ Years',
+      bio: 'Sanjeev specializes in advanced Java features, high-concurrency systems, JDBC APIs, and servlet configurations. He designs architectures that scale to millions of concurrent requests.'
+    },
+    'Aman Preet': {
+      specialization: 'DSA Coach & Competitive Programming Mentor',
+      experience: '6+ Years',
+      bio: 'Aman Preet is a competitive programmer who has coached students for technical interviews at top-tier product companies. He focuses on algorithmic thinking, memory optimization, and data structures.'
+    },
+    'Shruti Sen': {
+      specialization: 'Lead UI/UX Engineer & Frontend Specialist',
+      experience: '7+ Years',
+      bio: 'Shruti is a creative front-end engineer specializing in semantic markup, layouts, CSS architectures, and micro-interactions. She focuses on building responsive interfaces that wow users.'
+    }
+  };
+
+  const getTrainerInfo = (name) => {
+    return trainerBios[name] || {
+      specialization: 'Technical Trainer & Systems Engineer',
+      experience: '5+ Years',
+      bio: `${name} is an experienced technical trainer at Demo Academy, specializing in core computer science subjects, modern frameworks, and placement preparation.`
+    };
+  };
+
+  const generateLearningTopics = (lessonTitle) => {
+    const topics = [];
+    const titleLower = lessonTitle.toLowerCase();
+    
+    if (titleLower.includes('intro') || titleLower.includes('overview')) {
+      topics.push('Understand the core architecture, purpose, and key advantages.');
+      topics.push('Learn the environment setup, dependencies, and configuration basics.');
+      topics.push('Build your first hello-world implementation and trace its execution flow.');
+    } else if (titleLower.includes('installation') || titleLower.includes('connect')) {
+      topics.push('Step-by-step setup guides, installation prerequisites, and directory path setups.');
+      topics.push('How to verify the installation and test basic configuration pipelines.');
+      topics.push('Troubleshooting common connection errors, port conflicts, and security settings.');
+    } else if (titleLower.includes('injection') || titleLower.includes('ioc') || titleLower.includes('control')) {
+      topics.push('Understand the Inversion of Control (IoC) paradigm and container lifecycle.');
+      topics.push('Compare setter injection and constructor injection architectures.');
+      topics.push('Configure bean definitions, scope resolutions, and automatic dependencies.');
+    } else if (titleLower.includes('database') || titleLower.includes('sql') || titleLower.includes('jdbc') || titleLower.includes('connection')) {
+      topics.push('Understand relational database connectivity and driver architectures.');
+      topics.push('How to establish, query, and close database connection streams efficiently.');
+      topics.push('Implementing statement executions, prepared queries, and result mappings.');
+    } else if (titleLower.includes('array') || titleLower.includes('sorting') || titleLower.includes('dsa') || titleLower.includes('structure')) {
+      topics.push('Analyze memory allocation, time complexities (Big O), and element index structures.');
+      topics.push('Step-by-step algorithmic dry runs for insertion, deletion, and search loops.');
+      topics.push('Optimal approaches to minimize auxiliary space and run time complexity.');
+    } else if (titleLower.includes('layout') || titleLower.includes('css') || titleLower.includes('html')) {
+      topics.push('Master responsive design containers, alignment properties, and flexbox coordinates.');
+      topics.push('Best practices for browser compatibility, semantic tagging, and clean style architectures.');
+      topics.push('Debugging layout breaks, spacing properties, and media query breakpoints.');
+    } else {
+      topics.push(`Deep dive into the core properties and functions of ${lessonTitle}.`);
+      topics.push('Step-by-step logic tracing, variable tracking, and clean implementation guidelines.');
+      topics.push('Common pitfalls, edge cases, and optimization strategies to write production-ready code.');
+    }
+    return topics;
+  };
+
   const loadLesson = (lesson, course) => {
     // Set active item class
     document.querySelectorAll('.lesson-item').forEach(item => item.classList.remove('active'));
@@ -500,18 +572,45 @@ document.addEventListener('DOMContentLoaded', () => {
       playerVideoTitle.textContent = `${lesson.title} (PDF Document Notes Opened)`;
     }
 
-    // Set overview text descriptions
+    // Set overview panel with Trainer Details
     const overviewPanel = document.getElementById('panel-overview');
     if (overviewPanel) {
+      const trainerInfo = getTrainerInfo(course.instructor);
       overviewPanel.innerHTML = `
-        <p style="margin-bottom: 12px;">Welcome to this syllabus module for <strong>${course.title}</strong>, instructed by <strong>${course.instructor}</strong>.</p>
-        <p style="margin-bottom: 12px;">This topic focuses on <strong>${lesson.title}</strong>. Study materials, tasks, and assignment exercises are outlined in the accordion content list. Practice locally to complete this task successfully.</p>
-        <p>Once completed, tick the checkbox next to the lesson in your syllabus outline to track your learning score statistics.</p>
+        <div class="trainer-details-card" style="display: flex; gap: 16px; align-items: start; margin-top: 8px;">
+          <div class="trainer-avatar-large" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem; flex-shrink: 0;">
+            ${course.instructor.charAt(0)}
+          </div>
+          <div>
+            <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 2px;">${course.instructor}</h4>
+            <p style="color: var(--accent-blue); font-size: 0.82rem; font-weight: 500; margin-bottom: 8px;">${trainerInfo.specialization} (${trainerInfo.experience} Exp)</p>
+            <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin: 0;">${trainerInfo.bio}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Set discussions panel with What We Learn
+    const topicsPanel = document.getElementById('panel-discussions');
+    if (topicsPanel) {
+      const topics = generateLearningTopics(lesson.title);
+      topicsPanel.innerHTML = `
+        <div class="learning-topics-container" style="margin-top: 8px;">
+          <h4 style="color: var(--text-primary); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px;">What you will learn in this video:</h4>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+            ${topics.map(topic => `
+              <li style="display: flex; gap: 10px; align-items: start; color: var(--text-secondary); font-size: 0.88rem; line-height: 1.4;">
+                <span style="color: var(--accent-green); font-weight: bold; flex-shrink: 0; margin-top: 1px;">✔</span>
+                <span>${topic}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
       `;
     }
   };
 
-  // --- TABS CONTROLLER (Overview, Discussions, Reviews) ---
+  // --- TABS CONTROLLER (Overview, Discussions) ---
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel-content');
 

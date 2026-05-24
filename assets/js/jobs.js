@@ -363,7 +363,7 @@ let countdownInterval = null;
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('demo-theme') || 'dark';
+  const saved = localStorage.getItem('demo_theme') || 'dark';
   const toggle = document.getElementById('theme-toggle');
   if (saved === 'light') {
     document.body.classList.add('light-theme');
@@ -373,13 +373,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggle) toggle.checked = false;
   }
   if (toggle) toggle.addEventListener('change', () => {
-    const t = toggle.checked ? 'dark' : 'light';
-    if (t === 'light') {
+    if (toggle.checked) {
       document.body.classList.add('light-theme');
+      localStorage.setItem('demo_theme', 'light');
     } else {
       document.body.classList.remove('light-theme');
+      localStorage.setItem('demo_theme', 'dark');
     }
-    localStorage.setItem('demo-theme', t);
   });
 
   document.querySelectorAll('.jobs-tab-btn').forEach(btn => {
@@ -509,8 +509,7 @@ function renderJobsGrid() {
     const typeBadge = `<span class="jobs-card-type-pill" style="background:${tc.bg};color:${tc.text};border:1px solid ${tc.border};">${capitalise(job.type)}</span>`;
 
     return `
-      <div class="jobs-card" onclick="openJobDetail(${job.id})" id="jobs-card-${job.id}"
-           style="border-left: 3px solid ${job.logoColor};">
+      <div class="jobs-card" onclick="openJobDetail(${job.id})" id="jobs-card-${job.id}">
         <div class="jobs-card-header">
           <div class="jobs-card-logo" style="background:${job.logoColor};color:#fff;">${job.logo}</div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">

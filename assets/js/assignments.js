@@ -663,31 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="module-accordion-title">${mod.title}</div>
           </div>
           <div class="module-header-right">
-            <button class="practice-more-btn" onclick="event.stopPropagation(); alert('Launching practice workspace...')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-              Practice More
-            </button>
-
-            <span class="module-info-icon" title="Module Details">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="16" x2="12" y2="12"/>
-                <line x1="12" y1="8" x2="12.01" y2="8"/>
-              </svg>
-            </span>
-
-            <span class="module-practice-badge">
-              ${mod.practiceModulesAvailable} Practice Module Available
-            </span>
-
             ${mod.timeTaken !== '0m' ? `<span class="module-time-taken">Time Taken: ${mod.timeTaken}</span>` : ''}
-            
-            <span class="module-due-badge">
-              Past Due Date ${mod.dueDate || '22/12/2025'}
-            </span>
 
             <span class="module-chevron-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -718,8 +694,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const header = item.querySelector('.module-accordion-row-header');
       if (header) {
         header.addEventListener('click', (e) => {
-          if (e.target.closest('.module-info-icon') || e.target.closest('.practice-more-btn')) return;
-
           const isCurrentlyActive = item.classList.contains('active');
           
           document.querySelectorAll('.module-accordion-item').forEach(el => el.classList.remove('active'));
