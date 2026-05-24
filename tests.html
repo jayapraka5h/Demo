@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Academy - On Demand Topic Tests</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--accent-blue)"/>
+            <path d="M2 17L12 22L22 17" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>DEMO ACADEMY</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li class="nav-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="courses.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <p>Courses</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="tests.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11L12 14L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                <p>Tests</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="assignments.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <p>Assignments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="companies.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="9 11 12 14 16 10"/>
+                </svg>
+                <p>Company Questions</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="jobs.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <p>Jobs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                </svg>
+                <p>Bookmarks</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <p>Report an Issue</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <p>Profile</p>
+            </a>
+          </li>
+        </ul>
+        
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-container">
+          <span class="theme-label">Dark Theme</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="welcome-msg">
+          <h1 id="tests-header-title">OnDemand Topic Tests</h1>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="badge-dot"></span>
+          </button>
+          
+          <button class="action-btn" aria-label="QR Scanner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="avatar-circle">ST</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content -->
+      <div class="dashboard-body">
+        
+        <!-- ==========================================
+             VIEW 1: TEST CATEGORIES SELECTOR
+             ========================================== -->
+        <div id="tests-categories-view" style="display: block; width: 100%;">
+          <h2 class="test-categories-title">On Demand - Topic Tests</h2>
+          
+          <div class="test-categories-grid">
+            <!-- Java Quiz Card -->
+            <div class="test-category-card" id="cat-java-quiz">
+              <div class="category-icon-circle java">
+                <!-- Coffee mug (Java) icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <h3>Java Quiz</h3>
+            </div>
+
+            <!-- Programming Card -->
+            <div class="test-category-card" id="cat-programming">
+              <div class="category-icon-circle programming">
+                <!-- Code icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <h3>Programming</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             VIEW 2: DYNAMIC TOPIC TESTS GRID
+             ========================================== -->
+        <div id="tests-grid-view" style="display: none; width: 100%;">
+          <!-- Header with back button -->
+          <div class="player-header" style="margin-bottom: 24px;">
+            <button class="player-back-btn" id="tests-back-btn" aria-label="Go back to test categories">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+              </svg>
+            </button>
+            <h2 id="tests-category-title">OnDemand Tests</h2>
+          </div>
+
+          <!-- 3-column topic test grid -->
+          <div class="tests-grid" id="tests-grid">
+            <!-- Dynamic topic cards load here (matching screenshot 2 list) -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- MCQ Quiz Sheet Modal Backdrop -->
+    <div class="modal-backdrop" id="quiz-modal">
+      <div class="modal-container" style="max-width: 520px;">
+        <div class="modal-header">
+          <h2 id="quiz-modal-title">Take Test</h2>
+          <button class="modal-close-btn" id="quiz-close-btn" aria-label="Close dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <!-- Quiz Panel -->
+          <div id="quiz-play-panel">
+            <div class="quiz-question-container">
+              <div class="quiz-question-number" id="quiz-question-num">Question 1 of 3</div>
+              <div class="quiz-question-text" id="quiz-question-text">Syllabus question loaded?</div>
+            </div>
+            
+            <div class="quiz-options-list" id="quiz-options-list">
+              <!-- Radio option lists load here -->
+            </div>
+          </div>
+
+          <!-- Result Panel -->
+          <div id="quiz-result-panel" style="display: none;">
+            <div class="quiz-result-box">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <h2>Quiz Completed!</h2>
+              <div class="quiz-result-score" id="quiz-result-score">80%</div>
+              <p id="quiz-result-feedback" style="color: var(--text-secondary); font-size: 0.9rem;">Congratulations, you passed this topic test!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-secondary" id="btn-quiz-cancel">Cancel</button>
+          <button class="btn-primary" id="btn-quiz-next">Next Question</button>
+          <button class="btn-primary" id="btn-quiz-submit" style="display: none;">Submit Test</button>
+          <button class="btn-primary" id="btn-quiz-close" style="display: none;">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Attempt History Modal Backdrop -->
+    <div class="modal-backdrop" id="history-modal">
+      <div class="modal-container" style="max-width: 500px;">
+        <div class="modal-header">
+          <h2 id="history-modal-title">Test Attempts History</h2>
+          <button class="modal-close-btn" id="history-close-btn" aria-label="Close history modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 16px 0;">
+          <div id="history-table-container">
+            <!-- Table loading attempts history -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-primary" id="btn-history-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Ask Demo AI Widget -->
+    <div class="ask-demo-widget" id="ask-demo-widget">
+      <button class="chat-bubble-btn" id="chat-bubble-btn" aria-label="Ask Demo Assistant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+
+      <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M12 2v2M8 5h8M12 11V9"/>
+          </svg>
+          <div>
+            <h3>Ask Demo</h3>
+            <p>Your AI Learning Companion</p>
+          </div>
+        </div>
+
+        <div class="chat-body" id="chat-body">
+          <div class="chat-msg demo">
+            Hi! I am Demo, your AI Learning Assistant. You can ask me about your topic tests, score criteria, or how to retake a quiz to improve your score!
+          </div>
+        </div>
+
+        <div class="chat-footer">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
+          <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="assets/js/tests.js"></script>
+</body>
+</html>

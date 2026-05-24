@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Academy - Course Catalog & Player</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--accent-blue)"/>
+            <path d="M2 17L12 22L22 17" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>DEMO ACADEMY</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li class="nav-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="courses.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <p>Courses</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="tests.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11L12 14L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                <p>Tests</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="assignments.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <p>Assignments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="companies.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="9 11 12 14 16 10"/>
+                </svg>
+                <p>Company Questions</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="jobs.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <p>Jobs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                </svg>
+                <p>Bookmarks</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <p>Report an Issue</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <p>Profile</p>
+            </a>
+          </li>
+        </ul>
+        
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-container">
+          <span class="theme-label">Dark Theme</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="welcome-msg">
+          <h1 id="courses-header-title">My Courses</h1>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="badge-dot"></span>
+          </button>
+          
+          <button class="action-btn" aria-label="QR Scanner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="avatar-circle">ST</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content (Toggled between catalog list and player) -->
+      <div class="dashboard-body">
+        
+        <!-- ==========================================
+             VIEW 1: COURSE LIST GRID
+             ========================================== -->
+        <div id="courses-list-view" style="display: block; width: 100%;">
+          <!-- Search Header Section -->
+          <div class="courses-header-section">
+            <div class="search-input-wrap">
+              <svg class="search-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <input type="text" id="courses-search" class="courses-search-bar" placeholder="Search for course...">
+            </div>
+            <button class="btn-primary" id="add-course-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Add Course
+            </button>
+          </div>
+
+          <!-- Courses Grid Catalog -->
+          <div class="courses-grid" id="courses-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+          
+          <!-- Hidden Template: Dotted Card for adding course -->
+          <div style="display: none;">
+            <div class="add-course-card" id="add-course-card">
+              <div class="add-course-card-content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="16"/>
+                  <line x1="8" y1="12" x2="16" y2="12"/>
+                </svg>
+                <h3>Add New Course</h3>
+                <p style="font-size: 0.8rem;">Click here to add a new syllabus study card</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             VIEW 2: COURSE VIDEO PLAYER (Split Screen)
+             ========================================== -->
+        <div id="course-player-view" class="course-player-view" style="display: none; width: 100%;">
+          <!-- Video Player Top Navigation Header -->
+          <div class="player-header">
+            <button class="player-back-btn" id="player-back-btn" aria-label="Go back to courses list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+              </svg>
+            </button>
+            <h2 id="player-course-title">Springs</h2>
+          </div>
+
+          <!-- Player split area -->
+          <div class="player-grid">
+            
+            <!-- Left Side: Video IFrame Player & Details -->
+            <div class="player-left">
+              <div class="video-player-wrapper">
+                <iframe id="player-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              
+              <!-- Video metadata info -->
+              <div class="video-info-box">
+                <div class="video-title-wrap">
+                  <div>
+                    <span class="lesson-badge" id="player-video-badge">Springs</span>
+                    <h3 id="player-video-title" style="margin-top: 10px;">Dependency Injection</h3>
+                  </div>
+                </div>
+
+                <div class="instructor-badge">
+                  <div class="instructor-avatar">I</div>
+                  <span class="instructor-name" id="player-instructor-name">Somanna</span>
+                </div>
+
+                <div style="margin-top: 24px;">
+                  <!-- Tabs -->
+                  <div class="player-tabs-bar">
+                    <button class="tab-btn active" id="tab-overview">Overview</button>
+                    <button class="tab-btn" id="tab-discussions">Discussions</button>
+                    <button class="tab-btn" id="tab-reviews">Reviews</button>
+                  </div>
+
+                  <!-- Tab Panels -->
+                  <div class="tab-panel-content" id="panel-overview">
+                    <p style="margin-bottom: 12px;">Welcome to this syllabus module course. Study materials, tasks, and exercises are outlined in the accordion content list.</p>
+                  </div>
+                  
+                  <div class="tab-panel-content hidden" id="panel-discussions">
+                    <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+                      <input type="text" class="chat-input" style="border-radius: 8px;" placeholder="Ask a question or leave a comment...">
+                      <button class="btn-primary" style="padding: 8px 16px; font-size: 0.8rem; border-radius: 8px;">Post</button>
+                    </div>
+                    <div class="discussion-comments-list">
+                      <div class="comment-item">
+                        <div class="comment-avatar">JS</div>
+                        <div class="comment-details">
+                          <h4>Jeethu Sharma <span style="font-weight: 400; color: var(--text-secondary); margin-left: 8px; font-size: 0.7rem;">2 hours ago</span></h4>
+                          <p>Is Tomcat installation required for Module 2 configs or can we run Spring Boot standalone? Thanks.</p>
+                        </div>
+                      </div>
+                      <div class="comment-item">
+                        <div class="comment-avatar" style="background-color: var(--accent-cyan)">TA</div>
+                        <div class="comment-details">
+                          <h4>TA Assistant <span style="font-weight: 400; color: var(--text-secondary); margin-left: 8px; font-size: 0.7rem;">1 hour ago</span></h4>
+                          <p>Hi Jeethu! For Spring Boot standard applications, Tomcat is embedded automatically. You do not need to install it separately. Standalone run will work perfectly!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-panel-content hidden" id="panel-reviews">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                      <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">4.8</span>
+                      <span style="color: var(--accent-gold); font-size: 1.1rem;">★★★★★</span>
+                      <span style="font-size: 0.8rem; color: var(--text-secondary);">(142 ratings)</span>
+                    </div>
+                    <p>Excellent structured learning path, easy-to-follow diagrams for Inversion of Control, and solid practical questions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Modules Syllabus Accordion -->
+            <div class="player-right">
+              <div class="syllabus-header">
+                <h3>Course Content</h3>
+                <div class="syllabus-stats" id="syllabus-stats">
+                  <!-- Loaded via JS -->
+                </div>
+              </div>
+              <div class="module-accordion-list" id="module-accordion-list">
+                <!-- Collapsible accordion items populated dynamically -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Modal Form: Add Course -->
+    <div class="modal-backdrop" id="add-course-modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Create New Course</h2>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <form id="add-course-form">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="new-course-title">Course Title *</label>
+              <input type="text" id="new-course-title" class="form-control" placeholder="e.g. Hibernate, Web Development" required>
+            </div>
+            
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label class="form-label" for="new-course-duration">Duration *</label>
+                <input type="text" id="new-course-duration" class="form-control" placeholder="e.g. 5 Hr 30 mins" required>
+              </div>
+              <div>
+                <label class="form-label" for="new-course-modules">Modules Count</label>
+                <input type="number" id="new-course-modules" class="form-control" value="6" min="1" max="20">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-course-instructor">Instructor Name</label>
+              <input type="text" id="new-course-instructor" class="form-control" placeholder="e.g. Somanna">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-course-banner">Banner Color Style</label>
+              <select id="new-course-banner" class="form-control">
+                <option value="course-banner-gradient-1">Deep Sapphire Blue</option>
+                <option value="course-banner-gradient-2">Vibrant Warm Orange (Springs)</option>
+                <option value="course-banner-gradient-3">Purple Magenta (Advanced Java)</option>
+                <option value="course-banner-gradient-4">Teal Green (DSA)</option>
+                <option value="course-banner-gradient-5">Grey Slate (HTML/CSS)</option>
+                <option value="course-banner-gradient-6">Indigo Blue (Python)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-course-desc">Short Description</label>
+              <textarea id="new-course-desc" class="form-control" style="resize: vertical; min-height: 80px;" placeholder="Briefly summarize what students will learn in this path..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" id="btn-cancel">Cancel</button>
+            <button type="submit" class="btn-primary">Create Path</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Floating Ask Demo AI Widget -->
+    <div class="ask-demo-widget" id="ask-demo-widget">
+      <button class="chat-bubble-btn" id="chat-bubble-btn" aria-label="Ask Demo Assistant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+
+      <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M12 2v2M8 5h8M12 11V9"/>
+          </svg>
+          <div>
+            <h3>Ask Demo</h3>
+            <p>Your AI Learning Companion</p>
+          </div>
+        </div>
+
+        <div class="chat-body" id="chat-body">
+          <div class="chat-msg demo">
+            Hi! I am Demo, your AI Learning Assistant. Open your syllabus list and click any lesson to play it instantly. Let me know if you have any conceptual questions!
+          </div>
+        </div>
+
+        <div class="chat-footer">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
+          <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/courses.js"></script>
+</body>
+</html>

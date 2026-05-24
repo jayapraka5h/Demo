@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Academy - Jobs Portal</title>
+  <meta name="description" content="Explore and apply to active placement drives and job opportunities through Demo Academy's Jobs Portal.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    window.addEventListener('error', function(e) {
+      const errDiv = document.createElement('div');
+      errDiv.style.position = 'fixed';
+      errDiv.style.top = '0';
+      errDiv.style.left = '0';
+      errDiv.style.width = '100%';
+      errDiv.style.backgroundColor = '#ef4444';
+      errDiv.style.color = '#ffffff';
+      errDiv.style.padding = '16px';
+      errDiv.style.zIndex = '999999';
+      errDiv.style.fontFamily = 'monospace';
+      errDiv.style.fontSize = '14px';
+      errDiv.style.whiteSpace = 'pre-wrap';
+      errDiv.textContent = 'JS ERROR: ' + e.message + '\nFile: ' + e.filename + '\nLine: ' + e.lineno;
+      document.body.appendChild(errDiv);
+    });
+  </script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--accent-blue)"/>
+            <path d="M2 17L12 22L22 17" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>DEMO ACADEMY</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li class="nav-item">
+              <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="courses.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <p>Courses</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="tests.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11L12 14L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                <p>Tests</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="assignments.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <p>Assignments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="companies.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="9 11 12 14 16 10"/>
+                </svg>
+                <p>Company Questions</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="jobs.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <p>Jobs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                </svg>
+                <p>Bookmarks</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <p>Report an Issue</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <p>Profile</p>
+            </a>
+          </li>
+        </ul>
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-container">
+          <span class="theme-label">Dark Theme</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="welcome-msg">
+          <h1>Jobs Portal</h1>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="badge-dot"></span>
+          </button>
+          <button class="action-btn" aria-label="QR Scanner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </button>
+          <div class="user-profile">
+            <div class="avatar-circle">ST</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Jobs Body -->
+      <div class="dashboard-body">
+
+        <!-- ===== JOBS LIST VIEW ===== -->
+        <div id="jobs-list-view" style="display:block; width:100%;">
+
+          <!-- Top Tab Filters -->
+          <div class="jobs-tabs-row">
+            <div class="jobs-tab-group">
+              <button class="jobs-tab-btn active" data-tab="all" id="tab-all">All Drives</button>
+              <button class="jobs-tab-btn" data-tab="technical" id="tab-technical">Technical</button>
+              <button class="jobs-tab-btn" data-tab="non-technical" id="tab-nontechnical">Non-Technical</button>
+              <button class="jobs-tab-btn" data-tab="internship" id="tab-internship">Internship</button>
+              <button class="jobs-tab-btn" data-tab="applied" id="tab-applied">Applied</button>
+            </div>
+
+            <!-- Search input (always visible) -->
+            <div class="jobs-search-wrap" style="margin-left: 16px;">
+              <svg class="jobs-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="text" id="jobs-search-input" class="jobs-search-input" placeholder="Search company or role…">
+            </div>
+
+            <!-- Filters button (opens animated dropdown with drive select) -->
+            <div class="filter-wrapper" style="position: relative; display: inline-block; margin-left: 8px;">
+              <button class="btn-primary" id="btn-toggle-jobs-filters" style="display: flex; align-items: center; gap: 8px; background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-primary); padding: 10px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                Filters
+              </button>
+
+              <div id="jobs-filters-dropdown" class="filters-pane hidden" style="position: absolute; right: 0; top: 44px; width: 320px; z-index: 200;">
+                <div class="filter-group">
+                  <h4>Drive Type</h4>
+                  <div class="checkbox-list" style="display:flex; gap:12px; flex-direction: column;">
+                    <label class="checkbox-container">
+                      <input type="checkbox" id="jobs-filter-active" value="active">
+                      <span class="checkmark"></span>
+                      Active
+                    </label>
+                    <label class="checkbox-container">
+                      <input type="checkbox" id="jobs-filter-closed" value="closed">
+                      <span class="checkmark"></span>
+                      Closed
+                    </label>
+                    <label class="checkbox-container">
+                      <input type="checkbox" id="jobs-filter-applied" value="applied">
+                      <span class="checkmark"></span>
+                      Applied
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jobs Count / Label -->
+          <div class="jobs-count-row">
+            <span id="jobs-count-label" class="jobs-count-label">Showing <b id="jobs-count-num">9</b> drives</span>
+          </div>
+
+          <!-- Jobs Grid -->
+          <div class="jobs-grid" id="jobs-grid">
+            <!-- Cards injected by JS -->
+          </div>
+
+        </div>
+
+        <!-- ===== JOB DETAIL VIEW ===== -->
+        <div id="jobs-detail-view" style="display:none; width:100%;">
+          <div class="jobs-detail-container">
+
+            <!-- Back button -->
+            <button class="jobs-back-btn" id="jobs-back-btn" onclick="jobsGoBack()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+              Back to Jobs
+            </button>
+
+            <!-- Hero Banner -->
+            <div class="jobs-detail-hero" id="jobs-detail-hero">
+              <div class="jobs-detail-hero-left">
+                <div class="jobs-detail-company-logo" id="jobs-detail-logo">GO</div>
+                <div>
+                  <h2 class="jobs-detail-company" id="jobs-detail-company">Google</h2>
+                  <p class="jobs-detail-role" id="jobs-detail-role">Software Engineer</p>
+                  <div class="jobs-detail-badges" id="jobs-detail-badges">
+                    <span class="jobs-badge jobs-badge-active">Active</span>
+                    <span class="jobs-badge jobs-badge-type">Technical</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jobs-detail-hero-right">
+                <div class="jobs-countdown-box" id="jobs-countdown-box">
+                  <div class="jobs-countdown-label">Application Closes In</div>
+                  <div class="jobs-countdown-timer" id="jobs-countdown-timer">
+                    <div class="jobs-countdown-unit"><span id="jcd-days">00</span><label>Days</label></div>
+                    <div class="jobs-countdown-sep">:</div>
+                    <div class="jobs-countdown-unit"><span id="jcd-hours">00</span><label>Hours</label></div>
+                    <div class="jobs-countdown-sep">:</div>
+                    <div class="jobs-countdown-unit"><span id="jcd-mins">00</span><label>Mins</label></div>
+                    <div class="jobs-countdown-sep">:</div>
+                    <div class="jobs-countdown-unit"><span id="jcd-secs">00</span><label>Secs</label></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Two-column layout: details left, apply right -->
+            <div class="jobs-detail-body">
+
+              <!-- Left Column -->
+              <div class="jobs-detail-left">
+
+                <!-- Job Description -->
+                <div class="jobs-section-card">
+                  <h3 class="jobs-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    Job Description
+                  </h3>
+                  <p class="jobs-desc-text" id="jobs-detail-desc">Loading job description...</p>
+                  <a class="jobs-pdf-btn" id="jobs-pdf-link" href="#" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download JD (PDF)
+                  </a>
+                </div>
+
+                <!-- Eligibility Criteria -->
+                <div class="jobs-section-card">
+                  <h3 class="jobs-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                      <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    Eligibility Criteria
+                  </h3>
+
+                  <!-- Academic 3-box section: 10th / 12th / B.Tech -->
+                  <div class="jobs-acad-section-label">Academic Requirements</div>
+                  <div class="jobs-academic-grid" id="jobs-academic-grid">
+                    <!-- Filled by JS -->
+                  </div>
+
+                  <!-- Other eligibility details -->
+                  <div class="jobs-acad-section-label" style="margin-top:4px;">Other Details</div>
+                  <div class="jobs-criteria-grid" id="jobs-criteria-grid">
+                    <!-- Filled by JS -->
+                  </div>
+                </div>
+
+                <!-- Required Skills -->
+                <div class="jobs-section-card">
+                  <h3 class="jobs-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <polyline points="16 18 22 12 16 6"/>
+                      <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    Required Skills
+                  </h3>
+                  <div class="jobs-skills-wrap" id="jobs-skills-wrap">
+                    <!-- Skill badges injected by JS -->
+                  </div>
+                </div>
+
+                <!-- Other Criteria -->
+                <div class="jobs-section-card" id="jobs-other-criteria-card">
+                  <h3 class="jobs-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <circle cx="12" cy="12" r="10"/>
+                      <line x1="12" y1="8" x2="12" y2="12"/>
+                      <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Other Criteria
+                  </h3>
+                  <div class="jobs-other-wrap" id="jobs-other-wrap">
+                    <!-- Injected by JS -->
+                  </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="jobs-section-card" id="jobs-notes-card">
+                  <h3 class="jobs-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Important Notes
+                  </h3>
+                  <ul class="jobs-notes-list" id="jobs-notes-list">
+                    <!-- Injected by JS -->
+                  </ul>
+                </div>
+
+              </div><!-- end left -->
+
+              <!-- Right Column: Salary + Apply -->
+              <div class="jobs-detail-right">
+                <div class="jobs-apply-card">
+                  <div class="jobs-apply-salary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                      <line x1="12" y1="1" x2="12" y2="23"/>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <div>
+                      <span class="jobs-apply-salary-label">CTC / Stipend</span>
+                      <span class="jobs-apply-salary-val" id="jobs-salary-val">₹12 LPA</span>
+                    </div>
+                  </div>
+                  <div class="jobs-apply-meta">
+                    <div class="jobs-apply-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                      <span id="jobs-location-val">Bangalore</span>
+                    </div>
+                    <div class="jobs-apply-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                      </svg>
+                      <span>Last Date: <b id="jobs-lastdate-val">15 Jun 2025</b></span>
+                    </div>
+                    <div class="jobs-apply-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </svg>
+                      <span>Openings: <b id="jobs-openings-val">50</b></span>
+                    </div>
+                  </div>
+                  <div class="jobs-apply-divider"></div>
+                  <label class="jobs-terms-check" id="jobs-terms-label">
+                    <input type="checkbox" id="jobs-terms-cb"> 
+                    <span class="jobs-terms-checkmark"></span>
+                    I confirm that I meet all eligibility criteria and agree to the terms of this drive.
+                  </label>
+                  <button class="jobs-apply-btn" id="jobs-apply-btn" disabled>Apply Now</button>
+                  <p class="jobs-apply-note" id="jobs-applied-note" style="display:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                      <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    You have successfully applied!
+                  </p>
+                </div>
+
+                <!-- Drive Timeline -->
+                <div class="jobs-timeline-card">
+                  <h3 class="jobs-section-title" style="margin-bottom:16px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    Drive Timeline
+                  </h3>
+                  <div class="jobs-timeline" id="jobs-timeline">
+                    <!-- Injected by JS -->
+                  </div>
+                </div>
+              </div><!-- end right -->
+
+            </div><!-- end detail-body -->
+          </div>
+        </div><!-- end detail-view -->
+
+      </div><!-- dashboard-body -->
+
+
+
+    </main>
+  </div>
+
+  <script src="assets/js/jobs.js?v=1"></script>
+</body>
+</html>
