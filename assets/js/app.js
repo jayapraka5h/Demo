@@ -1,27 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-  // --- THEME ENGINE ---
-  const themeToggle = document.getElementById('theme-toggle');
-  const storedTheme = localStorage.getItem('demo_theme') || 'dark';
-
-  if (storedTheme === 'light') {
-    document.body.classList.add('light-theme');
-    themeToggle.checked = true;
-  } else {
-    document.body.classList.remove('light-theme');
-    themeToggle.checked = false;
-  }
-
-  themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-      document.body.classList.add('light-theme');
-      localStorage.setItem('demo_theme', 'light');
-    } else {
-      document.body.classList.remove('light-theme');
-      localStorage.setItem('demo_theme', 'dark');
-    }
-  });
+  // NOTE: Theme engine and Chat widget are handled by common.js
+  // This file handles dashboard-specific features: carousel, progress rings, attendance
 
   // --- CAROUSEL ENGINE ---
   const slides = document.querySelectorAll('.slide');
@@ -247,71 +227,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (yearFilter) yearFilter.addEventListener('change', updateFilters);
 
-  // --- ASK DEMO CHAT INTERACTIVE LOGIC ---
-  const chatBubbleBtn = document.getElementById('chat-bubble-btn');
-  const chatWindow = document.getElementById('chat-window');
-  const chatBody = document.getElementById('chat-body');
-  const chatInput = document.getElementById('chat-input');
-  const chatSendBtn = document.getElementById('chat-send-btn');
-
-  const toggleChat = () => {
-    chatWindow.classList.toggle('open');
-    if (chatWindow.classList.contains('open')) {
-      chatInput.focus();
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-  };
-
-  if (chatBubbleBtn && chatWindow) {
-    chatBubbleBtn.addEventListener('click', toggleChat);
-  }
-
-  const appendMessage = (sender, text) => {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `chat-msg ${sender}`;
-    msgDiv.textContent = text;
-    chatBody.appendChild(msgDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  };
-
-  const getAIResponse = (userText) => {
-    const lowerText = userText.toLowerCase();
-    
-    if (lowerText.includes('attendance') || lowerText.includes('present') || lowerText.includes('absent')) {
-      return "Your attendance has been automatically updated for today! Remember, logging in each day marks you present automatically.";
-    }
-    if (lowerText.includes('course') || lowerText.includes('java') || lowerText.includes('progress')) {
-      return "You are currently studying Core Java (Beginner Level). Your syllabus progress is at 72%. Your next topic is Multi-threading!";
-    }
-    if (lowerText.includes('leaderboard') || lowerText.includes('rank') || lowerText.includes('harsh')) {
-      return "The Attendance Leaderboard shows the top performers this month. Harsh is currently leading at 95% attendance, followed by Neha and Deepak.";
-    }
-    if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('hey')) {
-      return "Hello! I am Demo, your AI Learning Assistant. You can ask me about your course progress, attendance details, or how to check your study modules!";
-    }
-    
-    return "That's an interesting question! I can help you with your Java coursework, check your assignment status, or explain how to improve your daily coding stats. Ask me anything about your academy portal!";
-  };
-
-  const handleSendMessage = () => {
-    const text = chatInput.value.trim();
-    if (!text) return;
-
-    appendMessage('user', text);
-    chatInput.value = '';
-
-    setTimeout(() => {
-      const response = getAIResponse(text);
-      appendMessage('demo', response);
-    }, 800);
-  };
-
-  if (chatSendBtn && chatInput) {
-    chatSendBtn.addEventListener('click', handleSendMessage);
-    chatInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        handleSendMessage();
-      }
-    });
-  }
 });

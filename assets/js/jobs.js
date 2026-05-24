@@ -363,24 +363,7 @@ let countdownInterval = null;
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('demo_theme') || 'dark';
-  const toggle = document.getElementById('theme-toggle');
-  if (saved === 'light') {
-    document.body.classList.add('light-theme');
-    if (toggle) toggle.checked = true;
-  } else {
-    document.body.classList.remove('light-theme');
-    if (toggle) toggle.checked = false;
-  }
-  if (toggle) toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-      document.body.classList.add('light-theme');
-      localStorage.setItem('demo_theme', 'light');
-    } else {
-      document.body.classList.remove('light-theme');
-      localStorage.setItem('demo_theme', 'dark');
-    }
-  });
+  // NOTE: Theme engine is handled by common.js
 
   document.querySelectorAll('.jobs-tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -714,19 +697,37 @@ function handleApply() {
   if (!job) return;
   job.applied = true;
 
-  document.getElementById('jobs-apply-btn').style.display = 'none';
-  document.getElementById('jobs-terms-label').style.display = 'none';
-  document.getElementById('jobs-applied-note').style.display = 'flex';
+  // Show inline success message in apply card
+  const applyBtn   = document.getElementById('jobs-apply-btn');
+  const termsLabel = document.getElementById('jobs-terms-label');
+  const appliedNote = document.getElementById('jobs-applied-note');
 
+  if (applyBtn)   { applyBtn.style.display    = 'none'; }
+  if (termsLabel) { termsLabel.style.display  = 'none'; }
+  if (appliedNote){ appliedNote.style.display = 'flex'; }
+
+  // Add applied badge to hero
   const badgesEl = document.getElementById('jobs-detail-badges');
-  if (!badgesEl.querySelector('.jobs-badge-applied')) {
+  if (badgesEl && !badgesEl.querySelector('.jobs-badge-applied')) {
     const span = document.createElement('span');
     span.className = 'jobs-badge jobs-badge-applied';
     span.textContent = '\u2713 Applied';
     badgesEl.appendChild(span);
   }
+
+  // Mark card in list view
   const card = document.getElementById(`jobs-card-${job.id}`);
   if (card) card.classList.add('applied');
+
+  // Show floating success toast
+  if (typeof window.showApplySuccessToast === 'function') {
+    window.showApplySuccessToast(job.company);
+  }
+
+  // Animate the apply section scroll into view
+  if (appliedNote) {
+    appliedNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 // ─── Countdown ────────────────────────────────────────────────────────────────

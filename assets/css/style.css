@@ -4875,3 +4875,61 @@ input:checked + .slider:before {
   background-color: #2563eb;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
+
+/* ── Page Transition Animations ─────────────────────────────── */
+.main-content.page-entering {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.main-content.page-entered {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.main-content.page-leaving {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+
+/* ── Apply Success Toast ─────────────────────────────────────── */
+.demo-apply-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: #ecfdf5;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(16, 185, 129, 0.15);
+  z-index: 999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.demo-apply-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.demo-apply-toast svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.demo-apply-toast strong {
+  font-weight: 700;
+}
